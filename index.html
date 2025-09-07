@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: {} },
+        plugins: [
+          function ({ addBase, theme }) {
+            addBase({
+              'input[type="text"], input[type="email"], input[type="number"], select':
+                {
+                  border: "0.5px solid #d1d5db",
+                },
+            });
+          },
+        ],
+      };
+    </script>
+  </head>
+  <!-- add button -->
+
+
+<body>
+    <div
+      class="min-h-screen bg-gradient-to-tl from-orange-200 to-orange-50 p-4 md:p-20"
+    >
+      <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-md p-8">
+         <div class="btn mb-6">
+          <button onclick="location.href='applications.html'" type="button" class="bg-orange-500 text-white px-4 py-2 rounded-md">
+            Go back
+          </button>
+        </div>
+
+
+        <form name="applicationForm" class="flex flex-col gap-6">
+          <h1 class="text-2xl font-bold text-gray-800">Application Form</h1>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div>
+              <label
+                for="firstName"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                First Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter your first name"
+                required
+                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                minlength="2"
+                maxlength="50"
+                pattern="^[a-zA-Z\s]+$"
+              />
+            </div>
+            <div>
+              <label
+                for="lastName"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Last Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter your last name"
+                required
+                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                minlength="2"
+                maxlength="50"
+                pattern="^[a-zA-Z\s]+$"
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Email <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+              />
+            </div>
+            <div>
+              <label
+                for="age"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Age <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                placeholder="Enter your age"
+                required
+                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                min="18"
+                max="100"
+                step="1"
+              />
+            </div>
+          </div>
+
+          <!-- Education Level -->
+
+          <div>
+            <label
+              for="education"
+              class="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Education Level <span class="text-red-500">*</span>
+            </label>
+            <select
+              id="education"
+              name="education"
+              required
+              class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Select your education</option>
+              <option value="bac+2">Bac+2</option>
+              <option value="bac+3">Bac+3</option>
+              <option value="bac+5">Bac+5</option>
+            </select>
+          </div>
+
+          <!-- City -->
+          <div>
+            <label
+              for="city"
+              class="block text-sm font-medium text-gray-700 mb-2"
+            >
+              City <span class="text-red-500">*</span>
+            </label>
+            <select
+              id="city"
+              name="city"
+              required
+              class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Select your city</option>
+              <option value="casablanca">Casablanca</option>
+              <option value="rabat">Rabat</option>
+              <option value="marrakech">Marrakech</option>
+              <option value="fes">Fes</option>
+              <option value="tangier">Tangier</option>
+              <option value="agadir">Agadir</option>
+              <option value="meknes">Meknes</option>
+              <option value="oujda">Oujda</option>
+              <option value="kenitra">Kenitra</option>
+              <option value="tetouan">Tetouan</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="availability"
+              class="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Availability <span class="text-red-500">*</span>
+            </label>
+            <div class="flex items-center gap-2 mb-1">
+              <input
+                type="radio"
+                id="full_time"
+                name="availability"
+                value="full_time"
+                required
+              />
+              <label for="full_time" class="text-sm font-medium text-gray-700">
+                Full Time
+              </label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input
+                type="radio"
+                id="part_time"
+                name="availability"
+                value="part_time"
+                required
+              />
+              <label for="part_time" class="text-sm font-medium text-gray-700">
+                Part Time
+              </label>
+            </div>
+          </div>
+
+          <!-- Domain of interest -->
+
+          <div>
+            <label
+              for="domainsOfInterest"
+              class="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Domains of interest <span class="text-red-500">*</span>
+            </label>
+            <div class="flex flex-col gap-2 items-start">
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="ai"
+                  name="domainsOfInterest"
+                  value="ai"
+                />
+                <label for="ai" class="text-sm font-medium text-gray-700">
+                  AI
+                </label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="backend"
+                  name="domainsOfInterest"
+                  value="backend"
+                />
+                <label for="backend" class="text-sm font-medium text-gray-700">
+                  Backend
+                </label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="frontend"
+                  name="domainsOfInterest"
+                  value="frontend"
+                />
+                <label for="frontend" class="text-sm font-medium text-gray-700">
+                  Frontend
+                </label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="fullstack"
+                  name="domainsOfInterest"
+                  value="fullstack"
+                />
+                <label
+                  for="fullstack"
+                  class="text-sm font-medium text-gray-700"
+                >
+                  Fullstack
+                </label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="mobile"
+                  name="domainsOfInterest"
+                  value="mobile"
+                />
+                <label for="mobile" class="text-sm font-medium text-gray-700">
+                  Mobile
+                </label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="devops"
+                  name="domainsOfInterest"
+                  value="devops"
+                />
+                <label for="devops" class="text-sm font-medium text-gray-700">
+                  Devops
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+
+          <div>
+            <button
+              type="submit"
+              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            >
+              Submit Application
+            </button>
+          </div>
+        </form>
+
+        <!-- success message -->
+        <div class="text-sm  mt-4 text-center hidden" id="successMessage">
+            <svg class="h-16 w-16 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          <h3 class="text-xl font-bold text-gray-900 mb-2"></h3>Application Submitted!</h3>
+          <p class="text-gray-600">Thank you for your application. We will contact you soon.</p>
+          <button id="submitAnotherApplication" class="w-full flex mt-4 justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
+            Submit Another Application
+          </button>
+        </div>
+
+        <!-- error message -->
+        <div class="text-sm text-red-500 mt-4 hidden" id="errorMessage">
+      </div>
+    </div>
+
+    <script type="module" src="assets/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Applications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: {} },
+        plugins: [
+          function ({ addBase, theme }) {
+            addBase({
+              'input[type="text"], input[type="email"], input[type="number"], select':
+                {
+                  border: "0.5px solid #d1d5db",
+                },
+            });
+          },
+        ],
+      };
+    </script>
+  </head>
+  <body>
+    <div
+      class="min-h-screen bg-gradient-to-tl from-orange-200 to-orange-50 p-4 md:p-20"
+    >
+      <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-md p-8">
+         <div class="btn mb-6">
+          <button onclick="location.href='index.html'" type="button" class="bg-orange-500 text-white px-4 py-2 rounded-md">
+            Go back
+          </button>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-800">All Applications</h1>
+
+        <div class="border border-gray-300 rounded-md overflow-x-auto mt-4">
+          <table class="w-full" id="applicationsTable">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="p-3 border-r border-b border-gray-300">
+                  First Name
+                </th>
+                <th class="p-3 border-r border-b border-gray-300">Last Name</th>
+                <th class="p-3 border-r border-b border-gray-300">Email</th>
+                <th class="p-3 border-r border-b border-gray-300">Age</th>
+                <th class="p-3 border-r border-b border-gray-300">
+                  Education Level
+                </th>
+                <th class="p-3 border-r border-b border-gray-300">City</th>
+                <th class="p-3 border-r border-b border-gray-300">
+                  Availability
+                </th>
+                <th class="p-3 border-r border-b border-gray-300">
+                  Domain of interest
+                </th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="assets/applications.js"></script>
+  </body>
+</html>
